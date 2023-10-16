@@ -8,49 +8,28 @@ import {
 	Input,
 	Stack,
 } from '@chakra-ui/react'
-import { useFormContext } from 'react-hook-form'
 
 const MyFormWithContext = () => {
-	const {
-		handleSubmit,
-		formState: { errors, isSubmitting, isValid },
-		register,
-	} = useFormContext()
+	// const onSubmit = values => {
+	// 	console.log(values)
+	// }
 
-	const onSubmit = values => {
-		console.log(values)
-	}
+	const errors = {}
 
 	return (
 		<Box maxW='500' w='90%'>
 			<Heading mb='5'>My Form</Heading>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form>
 				<Stack>
 					<FormControl isInvalid={errors.companyName}>
 						<FormLabel htmlFor='companyName'>Company Name</FormLabel>
-						<Input
-							id='companyName'
-							placeholder='Company Name'
-							{...register('companyName', {
-								required: 'This field is required',
-								minLength: {
-									value: 5,
-									message: 'Minimum length should be 5',
-								},
-							})}
-						/>
+						<Input id='companyName' placeholder='Company Name' />
 						<FormErrorMessage>
 							{errors.companyName && errors.companyName.message}
 						</FormErrorMessage>
 					</FormControl>
 
-					<Button
-						mt={4}
-						colorScheme='teal'
-						isLoading={isSubmitting}
-						type='submit'
-						isDisabled={!isValid}
-					>
+					<Button mt={4} colorScheme='teal' type='submit'>
 						Submit
 					</Button>
 				</Stack>
