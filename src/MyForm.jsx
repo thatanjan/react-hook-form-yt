@@ -158,6 +158,14 @@ const MyForm = () => {
 					>
 						Get Values
 					</Button>
+
+					<Input
+						id='name'
+						placeholder='Name'
+						{...register('name', {
+							onChange: e => console.log(e.target.value),
+						})}
+					/>
 				</Stack>
 			</form>
 		</Box>

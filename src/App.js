@@ -19,9 +19,9 @@ function App() {
 		<div className='App'>
 			<Center h='100vh'>
 				<MyForm />
-				{/* <FormProvider {...formMethods}> */}
-				{/* 	<MyFormWithContext /> */}
-				{/* </FormProvider> */}
+				<FormProvider {...formMethods}>
+					<MyFormWithContext />
+				</FormProvider>
 				<DevTool control={formMethods.control} />{' '}
 			</Center>
 		</div>
